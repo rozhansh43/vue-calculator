@@ -1,12 +1,6 @@
 <template>
   <div>
     <div class="calculator">
-      <h1>
-        {{ value }}
-        {{ operator }}
-        {{ newvalue }}
-      </h1>
-      
       <input type="text" v-model="result">
 
       <div class="buttons">
@@ -44,11 +38,11 @@ export default {
 
       if (['/','*','-','+','%'].includes(x)) {
         this.operator = x;
-        var final = this.value += this.operator;
-        this.operator = ''
-        final
         if (this.value == this.operator) {
           this.value = this.operator
+        }else {
+          this.value += this.operator;
+          this.operator = ''
         }
       }
 
@@ -63,7 +57,7 @@ export default {
   },
   computed: {
     result () {
-      var result = this.newvalue + this.operator + this.value
+      var result = this.value
 
       if (result == 0) {
         return 0
