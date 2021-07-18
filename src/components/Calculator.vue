@@ -40,9 +40,10 @@ export default {
         this.operator = x;
         if (this.value == this.operator) {
           this.value = this.operator
+          this.value -= this.operator
+
         }else {
           this.value += this.operator;
-          this.operator = ''
         }
       }
 
